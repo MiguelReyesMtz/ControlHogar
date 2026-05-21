@@ -1,0 +1,503 @@
+:root {
+  color-scheme: light;
+  --fondo: #f6f7f4;
+  --superficie: #ffffff;
+  --linea: #d8ded5;
+  --texto: #1e2622;
+  --muted: #68736d;
+  --verde: #1f8a70;
+  --verde-fuerte: #116650;
+  --ambar: #c47a19;
+  --rojo: #b33b33;
+  --azul: #2d6cdf;
+  --sombra: 0 18px 45px rgba(31, 45, 39, 0.1);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--fondo);
+  color: var(--texto);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+button:disabled,
+input:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.oculto {
+  display: none !important;
+}
+
+.pantalla-auth {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 24px;
+}
+
+.panel-auth {
+  width: min(430px, 100%);
+  padding: 28px;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: var(--superficie);
+  box-shadow: var(--sombra);
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.marca-icono {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--verde);
+  color: #fff;
+  font-weight: 800;
+}
+
+.marca h1,
+.barra-superior h1,
+.encabezado-vista h2,
+.panel-admin h3 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.marca p,
+.barra-superior p,
+.encabezado-vista p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+.selector-auth {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 4px;
+  margin-bottom: 20px;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: #eef2ec;
+}
+
+.selector-auth button,
+.navegacion button {
+  min-height: 40px;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.selector-auth button.activo,
+.navegacion button.activo {
+  background: var(--superficie);
+  color: var(--verde-fuerte);
+  box-shadow: 0 2px 8px rgba(31, 45, 39, 0.08);
+}
+
+.formulario-auth,
+.formulario-lineal {
+  display: grid;
+  gap: 14px;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+input,
+select {
+  min-height: 42px;
+  width: 100%;
+  border: 1px solid var(--linea);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--texto);
+  padding: 0 12px;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--verde);
+  box-shadow: 0 0 0 3px rgba(31, 138, 112, 0.16);
+}
+
+.formulario-auth button,
+.formulario-lineal button,
+.boton-accion {
+  min-height: 42px;
+  border-radius: 6px;
+  background: var(--verde);
+  color: #fff;
+  font-weight: 800;
+}
+
+.formulario-auth button:hover,
+.formulario-lineal button:hover,
+.boton-accion:hover {
+  background: var(--verde-fuerte);
+}
+
+.mensaje {
+  min-height: 22px;
+  margin: 14px 0 0;
+  color: var(--rojo);
+  font-weight: 700;
+}
+
+.mensaje.exito {
+  color: var(--verde-fuerte);
+}
+
+.aplicacion {
+  min-height: 100vh;
+  padding: 22px;
+}
+
+.barra-superior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 20px;
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: var(--superficie);
+}
+
+.navegacion {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.navegacion button {
+  padding: 0 14px;
+  border: 1px solid var(--linea);
+}
+
+.navegacion .boton-secundario {
+  background: #f5ece9;
+  color: var(--rojo);
+}
+
+.mensaje-app {
+  margin: 12px 2px 0;
+}
+
+.vista {
+  margin-top: 20px;
+}
+
+.encabezado-vista {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.estado-conexion,
+.codigo-hogar {
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: var(--superficie);
+  color: var(--muted);
+  padding: 10px 12px;
+  font-weight: 800;
+}
+
+.codigo-hogar {
+  display: grid;
+  gap: 4px;
+}
+
+.codigo-hogar span {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+.codigo-hogar strong {
+  color: var(--verde-fuerte);
+}
+
+.rejilla-dispositivos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.tarjeta-dispositivo,
+.panel-admin {
+  border: 1px solid var(--linea);
+  border-radius: 8px;
+  background: var(--superficie);
+  box-shadow: 0 8px 24px rgba(31, 45, 39, 0.06);
+}
+
+.tarjeta-dispositivo {
+  display: grid;
+  min-height: 220px;
+  gap: 14px;
+  padding: 16px;
+}
+
+.cabecera-dispositivo {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cabecera-dispositivo h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.cabecera-dispositivo p,
+.detalle-secundario {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+.etiqueta {
+  align-self: start;
+  border-radius: 999px;
+  background: #eef2ec;
+  color: var(--verde-fuerte);
+  padding: 5px 9px;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.lectura-principal {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 2rem;
+  font-weight: 850;
+}
+
+.lectura-principal small {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.estado-movimiento {
+  width: fit-content;
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: #eef2ec;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.estado-movimiento.activo {
+  background: #fff4df;
+  color: var(--ambar);
+}
+
+.grafica-temperatura {
+  width: 100%;
+  height: 86px;
+}
+
+.fila-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--linea);
+}
+
+.boton-estado {
+  min-width: 112px;
+  min-height: 38px;
+  border-radius: 6px;
+  background: #eef2ec;
+  color: var(--muted);
+  font-weight: 850;
+}
+
+.boton-estado.encendido {
+  background: var(--verde);
+  color: #fff;
+}
+
+.control-rango {
+  display: grid;
+  gap: 8px;
+}
+
+.control-rango input {
+  min-height: auto;
+  padding: 0;
+  accent-color: var(--verde);
+}
+
+.vacio {
+  border: 1px dashed var(--linea);
+  border-radius: 8px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.56);
+  color: var(--muted);
+  text-align: center;
+}
+
+.rejilla-admin {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 14px;
+}
+
+.panel-admin {
+  padding: 16px;
+}
+
+.panel-ancho {
+  grid-column: 1 / -1;
+}
+
+.formulario-lineal {
+  grid-template-columns: minmax(130px, 1.2fr) minmax(140px, 1fr) minmax(120px, 0.9fr) auto;
+  margin: 14px 0;
+}
+
+.lista-admin {
+  display: grid;
+  gap: 8px;
+}
+
+.fila-admin,
+.fila-permiso {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  border-top: 1px solid var(--linea);
+  padding: 10px 0;
+}
+
+.fila-admin:first-child,
+.fila-permiso:first-child {
+  border-top: 0;
+}
+
+.fila-admin strong,
+.fila-permiso strong {
+  display: block;
+}
+
+.acciones-fila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.boton-mini {
+  min-height: 34px;
+  border-radius: 6px;
+  background: #eef2ec;
+  color: var(--verde-fuerte);
+  padding: 0 10px;
+  font-weight: 800;
+}
+
+.boton-mini.peligro {
+  background: #f5ece9;
+  color: var(--rojo);
+}
+
+.tabla-permisos {
+  margin-top: 12px;
+}
+
+.opciones-permiso {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: flex-end;
+}
+
+.opciones-permiso label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--texto);
+  font-weight: 750;
+}
+
+.opciones-permiso input {
+  width: 18px;
+  min-height: 18px;
+  accent-color: var(--verde);
+}
+
+@media (max-width: 800px) {
+  .aplicacion {
+    padding: 14px;
+  }
+
+  .barra-superior,
+  .encabezado-vista {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .navegacion {
+    justify-content: stretch;
+  }
+
+  .navegacion button {
+    flex: 1 1 150px;
+  }
+
+  .rejilla-admin,
+  .formulario-lineal {
+    grid-template-columns: 1fr;
+  }
+
+  .fila-admin,
+  .fila-permiso {
+    grid-template-columns: 1fr;
+  }
+
+  .acciones-fila,
+  .opciones-permiso {
+    justify-content: flex-start;
+  }
+}

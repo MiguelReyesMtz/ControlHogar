@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Control Hogar</title>
+    <link rel="stylesheet" href="/css/app.css" />
+  </head>
+  <body>
+    <main id="autenticacion" class="pantalla-auth">
+      <section class="panel-auth">
+        <div class="marca">
+          <span class="marca-icono">CH</span>
+          <div>
+            <h1>Control Hogar</h1>
+            <p>IoT simulado y administración distribuida</p>
+          </div>
+        </div>
+
+        <div class="selector-auth" role="tablist">
+          <button id="tab-login" class="activo" type="button">Iniciar sesión</button>
+          <button id="tab-registro" type="button">Registro</button>
+        </div>
+
+        <form id="form-login" class="formulario-auth">
+          <label>
+            Correo
+            <input id="login-correo" type="email" autocomplete="email" required />
+          </label>
+          <label>
+            Contraseña
+            <input id="login-contrasena" type="password" autocomplete="current-password" required />
+          </label>
+          <button type="submit">Entrar</button>
+        </form>
+
+        <form id="form-registro" class="formulario-auth oculto">
+          <label>
+            Correo
+            <input id="registro-correo" type="email" autocomplete="email" required />
+          </label>
+          <label>
+            Contraseña
+            <input id="registro-contrasena" type="password" autocomplete="new-password" minlength="6" required />
+          </label>
+          <label>
+            Código del hogar
+            <input id="registro-codigo" type="text" autocomplete="off" required />
+          </label>
+          <button type="submit">Crear cuenta</button>
+        </form>
+
+        <p id="mensaje-auth" class="mensaje"></p>
+      </section>
+    </main>
+
+    <section id="aplicacion" class="aplicacion oculto">
+      <header class="barra-superior">
+        <div>
+          <h1>Control inteligente del hogar</h1>
+          <p id="resumen-sesion"></p>
+        </div>
+        <nav class="navegacion">
+          <button id="nav-dashboard" class="activo" type="button">Dashboard</button>
+          <button id="nav-admin" class="oculto" type="button">Administración</button>
+          <button id="boton-salir" class="boton-secundario" type="button">Salir</button>
+        </nav>
+      </header>
+
+      <p id="mensaje-app" class="mensaje mensaje-app"></p>
+
+      <section id="vista-dashboard" class="vista">
+        <div class="encabezado-vista">
+          <div>
+            <h2>Dashboard</h2>
+            <p>Dispositivos disponibles para tu usuario</p>
+          </div>
+          <span id="estado-conexion" class="estado-conexion">Conectando</span>
+        </div>
+        <div id="lista-dispositivos" class="rejilla-dispositivos"></div>
+      </section>
+
+      <section id="vista-admin" class="vista oculto">
+        <div class="encabezado-vista">
+          <div>
+            <h2>Administración</h2>
+            <p>Usuarios, dispositivos y permisos del hogar</p>
+          </div>
+          <div class="codigo-hogar">
+            <span>Código del hogar</span>
+            <strong id="codigo-hogar">...</strong>
+          </div>
+        </div>
+
+        <div class="rejilla-admin">
+          <section class="panel-admin">
+            <h3>Dispositivos</h3>
+            <form id="form-dispositivo" class="formulario-lineal">
+              <input id="dispositivo-nombre" type="text" placeholder="Nombre" required />
+              <select id="dispositivo-tipo" required>
+                <option value="luz">Luz</option>
+                <option value="ventilador">Ventilador</option>
+                <option value="temperatura">Sensor de temperatura</option>
+                <option value="movimiento">Sensor de movimiento</option>
+              </select>
+              <input id="dispositivo-ubicacion" type="text" placeholder="Ubicación" />
+              <button type="submit">Agregar</button>
+            </form>
+            <div id="admin-dispositivos" class="lista-admin"></div>
+          </section>
+
+          <section class="panel-admin">
+            <h3>Usuarios</h3>
+            <div id="admin-usuarios" class="lista-admin"></div>
+          </section>
+
+          <section class="panel-admin panel-ancho">
+            <h3>Permisos por usuario</h3>
+            <select id="selector-usuario-permisos"></select>
+            <div id="tabla-permisos" class="tabla-permisos"></div>
+          </section>
+        </div>
+      </section>
+    </section>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/app.js" type="module"></script>
+  </body>
+</html>
