@@ -2,7 +2,7 @@
 
 Este manual describe las funciones que existen actualmente en el sistema **Control Hogar**.
 
-El sistema es una simulación de hogar inteligente. No se conecta con hardware real. Los sensores y actuadores son representaciones de software.
+El sistema es una simulación de hogar inteligente. No se conecta con hardware real. Los sensores y actuadores reciben datos simulados de scripts.
 
 ## 1. Tipos de usuario
 
